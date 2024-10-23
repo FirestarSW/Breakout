@@ -16,6 +16,7 @@ public:
     void setFireBall(float duration);
     void setTinyBall(float duration);
     void setBigBall(float duration);
+    void setRadius(float radius);
 
 private:
     sf::CircleShape _sprite;

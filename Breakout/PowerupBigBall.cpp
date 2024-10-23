@@ -12,6 +12,6 @@ PowerupBigBall::~PowerupBigBall() {
 }
 
 std::pair<POWERUPS, float> PowerupBigBall::applyEffect() {
-    _ball->setVelocity(2.f, 5.0f);
+    _ball->setRadius(20.0f);
     return { bigBall, 5.0f };
 }

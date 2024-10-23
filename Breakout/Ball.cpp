@@ -118,8 +118,6 @@ void Ball::setFireBall(float duration)
 void Ball::setTinyBall(float duration) {
     if (duration) {
         _isTinyBall = true;
-        RADIUS = 5;
-        _sprite.setRadius(RADIUS);
         _timeWithPowerupEffect = duration;
         return;
     }
@@ -133,8 +131,6 @@ void Ball::setTinyBall(float duration) {
 void Ball::setBigBall(float duration) {
     if (duration) {
         _isBigBall = true;
-        RADIUS = 15;
-        _sprite.setRadius(RADIUS);
         _timeWithPowerupEffect = duration;
         return;
     }
@@ -142,5 +138,10 @@ void Ball::setBigBall(float duration) {
     RADIUS = 10;
     _sprite.setRadius(RADIUS);
     _timeWithPowerupEffect = 0.f;
+
+}
+
+void Ball::setRadius(float radius) {
+    _sprite.setRadius(radius);
 
 }

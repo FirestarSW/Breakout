@@ -36,3 +36,5 @@ fire ball (green)
 
 Fixed compiler issue, Removed PowerupFireBall.h include in PowerupBase.h
 Paddle now controllable with mouse when over the screen, controllable by keyboard when not
+
+Added tiny and big balls with powerups but there is a bug where the size of ball currently does not change

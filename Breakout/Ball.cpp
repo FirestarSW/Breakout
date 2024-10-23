@@ -1,5 +1,6 @@
 #include "Ball.h"
 #include "GameManager.h" // avoid cicular dependencies
+#include <iostream>
 
 Ball::Ball(sf::RenderWindow* window, float velocity, GameManager* gameManager)
     : _window(window), _velocity(velocity), _gameManager(gameManager),
@@ -14,8 +15,7 @@ Ball::~Ball()
 {
 }
 
-void Ball::update(float dt)
-{
+void Ball::update(float dt) {
     // check for powerup, tick down or correct
     if (_timeWithPowerupEffect > 0.f)
     {
@@ -28,6 +28,8 @@ void Ball::update(float dt)
         else
         {
             setFireBall(0);    // disable fireball
+            setTinyBall(0);
+            setBigBall(0);
             _sprite.setFillColor(sf::Color::Cyan);  // back to normal colour.
         }        
     }
@@ -38,6 +40,12 @@ void Ball::update(float dt)
         // Flickering effect
         int flicker = rand() % 50 + 205; // Random value between 205 and 255
         _sprite.setFillColor(sf::Color(flicker, flicker / 2, 0)); // Orange flickering color
+    } else if (_isTinyBall) {
+        setRadius(5.0f);
+
+    } else if (_isBigBall) {
+        setRadius(20.0f);
+
     }
 
     // Update position with a subtle floating-point error
@@ -122,8 +130,7 @@ void Ball::setTinyBall(float duration) {
         return;
     }
     _isTinyBall = false;
-    RADIUS = 10;
-    _sprite.setRadius(RADIUS);
+    setRadius(normRadius);
     _timeWithPowerupEffect = 0.f;
 
 }
@@ -135,13 +142,13 @@ void Ball::setBigBall(float duration) {
         return;
     }
     _isBigBall = false;
-    RADIUS = 10;
-    _sprite.setRadius(RADIUS);
+    setRadius(normRadius);
     _timeWithPowerupEffect = 0.f;
 
 }
 
 void Ball::setRadius(float radius) {
+    RADIUS = radius;
     _sprite.setRadius(radius);
 
 }

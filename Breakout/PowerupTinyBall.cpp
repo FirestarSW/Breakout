@@ -12,6 +12,6 @@ PowerupTinyBall::~PowerupTinyBall() {
 }
 
 std::pair<POWERUPS, float> PowerupTinyBall::applyEffect() {
-    _ball->setRadius(5.0f);
+    _ball->setTinyBall(5.0f);
     return { tinyBall, 5.0f };
 }

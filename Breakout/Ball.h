@@ -31,8 +31,8 @@ private:
 
     GameManager* _gameManager;  // Reference to the GameManager
 
-
-    float RADIUS = 10.0f;      
+    float normRadius = 10.0f;
+    float RADIUS = normRadius;
     static constexpr float VELOCITY = 350.0f;   // for reference.
 };
 

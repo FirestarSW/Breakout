@@ -116,11 +116,11 @@
     <ClInclude Include="PowerupFireBall.h">
       <Filter>Powerups</Filter>
     </ClInclude>
-    <ClInclude Include="PowerupTinyBall.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PowerupBigBall.h">
-      <Filter>Header Files</Filter>
+      <Filter>Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="PowerupTinyBall.h">
+      <Filter>Powerups</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

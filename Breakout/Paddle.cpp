@@ -16,11 +16,12 @@ Paddle::~Paddle()
 void Paddle::moveLeft(float dt)
 {
     float position = _sprite.getPosition().x;
-
+   
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && position > 0)
     {
         _sprite.move(sf::Vector2f(-dt * PADDLE_SPEED, 0));
     }
+
 }
 
 void Paddle::moveRight(float dt)
@@ -31,6 +32,17 @@ void Paddle::moveRight(float dt)
     {
         _sprite.move(sf::Vector2f(dt * PADDLE_SPEED, 0));
     }
+}
+
+void Paddle::moveMouse(float dt) {
+    sf::Vector2i mousePixelPos = sf::Mouse::getPosition(*_window);
+    sf::Vector2f mouseWorldPos = _window->mapPixelToCoords(mousePixelPos);
+
+    float moveToX = mouseWorldPos.x - _width / 2.f;
+
+    if (moveToX > 0 && moveToX < _window->getSize().x - _width)
+    _sprite.setPosition(moveToX, _sprite.getPosition().y);
+
 }
 
 void Paddle::update(float dt)

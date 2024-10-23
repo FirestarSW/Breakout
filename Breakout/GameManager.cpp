@@ -76,10 +76,21 @@ void GameManager::update(float dt)
         _powerupManager->spawnPowerup();
         _timeLastPowerupSpawned = _time;
     }
-
+    
     // move paddle
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) _paddle->moveRight(dt);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) _paddle->moveLeft(dt);
+    sf::Vector2i mousePixelPos = sf::Mouse::getPosition(*_window);
+    sf::Vector2f mouseWorldPos = _window->mapPixelToCoords(mousePixelPos);
+    
+    // If mouse is on screen
+    if (mouseWorldPos.x > 0 && mouseWorldPos.y > 0 && mouseWorldPos.x < _window->getSize().x && mouseWorldPos.y < _window->getSize().y) {
+        _paddle->moveMouse(dt);
+
+    // Else use keyboard
+    } else {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) _paddle->moveRight(dt);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) _paddle->moveLeft(dt);
+
+    }
 
     // update everything 
     _paddle->update(dt);

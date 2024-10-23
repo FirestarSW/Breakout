@@ -35,3 +35,4 @@ fire ball (green)
 <Add information to this section about the time you've taken for this task along with a professional changelist.>
 
 Fixed compiler issue, Removed PowerupFireBall.h include in PowerupBase.h
+Paddle now controllable with mouse when over the screen, controllable by keyboard when not
